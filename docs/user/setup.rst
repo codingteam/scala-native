@@ -55,7 +55,7 @@ Windows::
 
 6. Install the necessary packages:
 
-    $ pacman -S git llvm clang gcc autoconf automake libtool m4 make pkg-config
+    $ pacman -S git llvm clang mingw-w64-x86_64-gcc autoconf automake libtool m4 make pkg-config
 
 7. Clone and install Boehm GC according to bdwgc documentation:
 
