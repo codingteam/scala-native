@@ -53,7 +53,7 @@ Windows::
 
     $ pacman -Syuu
 
-6. Install the necessary packages:
+6. Install the necessary packages::
 
     $ pacman -S git llvm clang mingw-w64-x86_64-gcc autoconf automake libtool m4 make pkg-config
 
