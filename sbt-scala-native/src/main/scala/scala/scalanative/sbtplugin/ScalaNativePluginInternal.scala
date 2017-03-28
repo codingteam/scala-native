@@ -288,10 +288,10 @@ object ScalaNativePluginInternal {
       "org.scala-native" % "nscplugin" % nativeVersion cross CrossVersion.full),
     nativeSharedLibrary := false,
     nativeClang := {
-      discover("clang", Seq(("3", "8"), ("3", "7")))
+      discover("clang", Seq(("3", "9"), ("3", "8"), ("3", "7")))
     },
     nativeClangPP := {
-      discover("clang++", Seq(("3", "8"), ("3", "7")))
+      discover("clang++", Seq(("3", "9"), ("3", "8"), ("3", "7")))
     },
     nativeCompileOptions := {
       mode(nativeMode.value) match {

@@ -4,6 +4,13 @@
 #include <math.h>
 #include <errno.h>
 
+# define MATH_ERRNO 1 /* errno set by math functions.  */
+# define MATH_ERREXCEPT 2 /* Exceptions raised by math functions.  */
+
+# ifndef __FAST_MATH__
+#  define math_errhandling (MATH_ERRNO | MATH_ERREXCEPT)
+# endif
+
 // This file contains functions that wrap libc
 // built-in macros. We need this because Scala Native
 // can not expand C macros, and that's the easiest way to
