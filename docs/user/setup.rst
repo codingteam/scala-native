@@ -44,12 +44,12 @@ Windows::
 
 1. Install MSYS2 x86_64
 2. Run "MSYS2 MinGW 64-bit" from the Start menu
-3. Execute `pacman` to update the package database::
+3. Execute :code:`pacman` to update the package database::
 
     $ pacman -Syuu
 
-4. Terminate MSYS2 console as `pacman` suggests and start it again
-5. Execute `pacman` again to finalize packages' upgrade process::
+4. Terminate MSYS2 console as :code:`pacman` suggests and start it again
+5. Execute :code:`pacman` again to finalize packages' upgrade process::
 
     $ pacman -Syuu
 
@@ -68,11 +68,11 @@ Windows::
     $ make check # Should report NO failures; be careful
     $ make install
 
-8. TODO[F]: Check that `scala-native` build process sometimes uses `which` command that resolves paths relative to `<msys root>/mingw64`. So you'll need to symlimk `<msys root>/mingw64` to `<scala-native drive root>/mingw64`::
+8. TODO[F]: Check that :code:`scala-native` build process sometimes uses :code:`which` command that resolves paths relative to :code:`<msys root>/mingw64`. So you'll need to symlimk :code:`<msys root>/mingw64` to :code:`<scala-native drive root>/mingw64`::
 
     $ cmd /c mklink /j "<msys root>\\mingw64" "<scala-native drive root>\\mingw64"
 
-For example, if scala-native will be cloned to `D:\scala-native`, execute the following::
+For example, if scala-native will be cloned to :code:`D:\scala-native`, execute the following::
 
     $ cmd /c mklink /j "C:\\msys2\\mingw64" "D:\\mingw64"
 
