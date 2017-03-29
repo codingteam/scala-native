@@ -55,7 +55,7 @@ Windows::
 
 6. Install the necessary packages::
 
-    $ pacman -S git llvm clang mingw-w64-x86_64-gcc autoconf automake libtool m4 make pkg-config
+    $ pacman -S git llvm mingw-w64-x86_64-clang mingw-w64-x86_64-gcc autoconf automake libtool m4 make pkg-config
 
 7. Clone and install Boehm GC according to bdwgc documentation::
 
@@ -68,18 +68,35 @@ Windows::
     $ make check # Should report NO failures; be careful
     $ make install
 
-8. TODO[F]: Check that :code:`scala-native` build process sometimes uses :code:`which` command that resolves paths relative to :code:`<msys root>/mingw64`. So you'll need to symlimk :code:`<msys root>/mingw64` to :code:`<scala-native drive root>/mingw64`::
+8. :code:`scala-native` build process sometimes uses :code:`which` command that resolves paths relative to :code:`<msys root>/mingw64`. So you'll need to symlimk :code:`<msys root>/mingw64` to :code:`<scala-native drive root>/mingw64` (please execute that from external terminal; MSYS2 bash have problems when invoking cmd commands)::
 
-    $ cmd /c mklink /j "<msys root>\\mingw64" "<scala-native drive root>\\mingw64"
+    $ cmd /c mklink /j <scala-native drive root>\mingw64 <msys root>\mingw64
 
-For example, if scala-native will be cloned to :code:`D:\scala-native`, execute the following::
+For example, if :code:`scala-native` will be cloned to :code:`С:\Users\minime\scala-native`, execute the following::
 
-    $ cmd /c mklink /j "C:\\msys2\\mingw64" "D:\\mingw64"
+    $ cmd /c mklink /j C:\mingw64 C:\msys64\mingw64
 
-9.::
+9. Clone and build :code:`scala-native`::
 
     $ git clone https://github.com/scala-native/scala-native.git
     $ cd scala-native
+
+Set up your path, e.g.::
+
+    $ export PATH=$PATH:/c/Program\ Files\ \(x86\)/sbt/bin:/c/Program\ Files/Java/jdk1.8.0_102/bin
+
+Check the tool versions::
+
+    $ java -version
+    java version "1.8.0_102"
+    Java(TM) SE Runtime Environment (build 1.8.0_102-b14)
+    Java HotSpot(TM) 64-Bit Server VM (build 25.102-b14, mixed mode)
+
+    $ sbt --version
+    sbt launcher version 0.13.8
+
+Start build::
+
     $ sbt rebuild
 
 Continue to :ref:`sbt`.
